@@ -4,8 +4,6 @@
  *
  * @package _s
  */
- 
- /*TEST */
 
 get_header(); ?>
 

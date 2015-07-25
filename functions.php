@@ -121,6 +121,64 @@ function _s_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	      	// Eigenes Jquery
+        	wp_deregister_script('jquery');
+        	wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.js');
+        	wp_enqueue_script('jquery');
+
+        	//Flexslider
+        	wp_enqueue_script( 'js-flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array( 'jquery' ),false,true);
+        	
+        	//modernizr
+        	wp_enqueue_script( 'js-modernizr', get_template_directory_uri() . '/js/modernizr.js', array( 'jquery' ));
+        	
+        	//Doubletap to go
+        	//wp_enqueue_script( 'js-doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.min.js', array( 'jquery' ));
+        	
+        	// Fancybox
+        	wp_enqueue_script( 'js-fancybox', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array( 'jquery'));
+        	//wp_enqueue_style( 'style-fancybox', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.css' );
+        	
+            //wp_enqueue_script( 'js-fancybox-thumbs', get_template_directory_uri() . '/js/fancybox/helpers/jquery.fancybox-thumbs.js', array( 'jquery'));
+            //wp_enqueue_style( 'style-fancybox-thumbs', get_template_directory_uri() . '/js/fancybox/helpers/jquery.fancybox-thumbs.css' );
+            
+            // Jquer UI
+            //wp_enqueue_script( 'js-jqui', get_template_directory_uri() . '/js/jquery-ui/jquery-ui.min.js', array( 'jquery'));
+            //wp_enqueue_style( 'style-jqui', get_template_directory_uri() . '/js/jquery-ui/jquery-ui.min.css' );
+            //wp_enqueue_script( 'js-jquitouchpunch', get_template_directory_uri() . '/js/jquery-ui/jquery.ui.touch-punch.min.js', array( 'jquery'));
+
+            
+			
+			//wp_enqueue_script( 'js-parallax', get_template_directory_uri() . '/js/jquery.parallax.min.js', array( 'jquery'),false ,true);
+        	//wp_enqueue_script( 'js-skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array( 'jquery'),false ,true);
+			//wp_enqueue_script( 'js-tweenmax', get_template_directory_uri() . '/js/tweenmax.js', array( 'jquery'),false ,false);
+			//wp_enqueue_script( 'js-scrollmagic', get_template_directory_uri() . '/js/jquery.scrollmagic.min.js', array( 'jquery'),false ,false);
+			
+        	//wp_enqueue_script( 'js-scrollto', get_template_directory_uri() . '/js/jquery.scrollTo.min.js', array( 'jquery'),false ,true);
+        	//wp_enqueue_script( 'js-localscroll', get_template_directory_uri() . '/js/jquery.localScroll.min.js', array( 'jquery'),false ,true);
+        	
+        	
+        	// Google Maps
+        	//wp_enqueue_script( 'js-gmapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCctNzu3goNsUn9RLKeINXFiaXrzquQewo&sensor=false',false,false ,true);
+        	//wp_enqueue_script( 'js-gmaps', get_template_directory_uri() . '/js/gMap.js', array( 'jquery'),false ,true);
+        	
+        	// JS Isotope
+        	//wp_enqueue_script( 'js-imagesloaded', get_template_directory_uri() . '/js/imagesloaded.js', array( 'jquery'),false ,true);
+        	//wp_enqueue_script( 'js-isotope', get_template_directory_uri() . '/js/isotope.js', array( 'jquery'),false ,true);
+        	
+        	
+            // Jqeruy Waypoints
+            //wp_enqueue_script( 'js-waypoints', get_template_directory_uri() . '/js/jquery.waypoints.min.js', array( 'jquery'),false ,true);
+
+
+        	// JS scripts.js
+        	wp_enqueue_script( 'js-ini', get_template_directory_uri() . '/js/init.js', array( 'jquery'),false ,true);
+        	
+            // CSS Files
+        	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Alegreya+Sans:100,100italic,300,400,500,700,300italic,400italic,500italic,700italic');
+
+
 }
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
@@ -148,3 +206,50 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+// Allgemeine Template Einstellungen
+    require_once('includes/eigene-funktionen/wp-head.php');
+
+    require_once('includes/eigene-funktionen/image-sizes.php');
+    
+    require_once('includes/eigene-funktionen/menu-walkers.php');
+    
+    require_once('includes/eigene-funktionen/no-rss-feed.php');
+
+
+// Standard Funktionen laden
+    require_once('includes/eigene-funktionen/function-make-image.php');
+    require_once('includes/eigene-funktionen/meta-description.php');
+    require_once('includes/eigene-funktionen/sublevel-menu.php');
+    require_once('includes/eigene-funktionen/function-ultimateParent.php');
+    
+// Post Types
+	require_once('includes/eigene-funktionen/post-types.php');
+
+// Wordpress Design Anpassen & Backend Restriktionen
+    require_once('includes/eigene-funktionen/function-make-image.php');
+
+
+// Backend- & Designanpassungen
+    require_once('includes/eigene-funktionen/backend-restriktionen-allg.php');
+    require_once('includes/eigene-funktionen/backend-restriktionen-noAdmin.php');
+    
+    require_once('includes/eigene-funktionen/backend-template-hinzkunz.php');
+
+// Tiny MCE Classes
+	require_once('includes/eigene-funktionen/tinyMce-Styles.php');
+
+
+// Helper Functions
+    // require_once('includes/list-hooked-functions.php');
+
+    // Wordpress Generator Tag entfernen
+        remove_action('wp_head', 'wp_generator');
+        remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
+        remove_action('wp_head', 'wlwmanifest_link');
+        remove_action('wp_head', 'locale_stylesheet');
+        remove_action('wp_head', 'rel_canonical');
+        remove_action('wp_head', 'wlwmanifest_link');
+        remove_action('wp_head', 'wp_shortlink_wp_head');
+        remove_action('wp_head', 'rsd_link');
