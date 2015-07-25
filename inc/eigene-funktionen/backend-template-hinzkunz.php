@@ -33,8 +33,7 @@ function additional_admin_color_schemes() {
     
     	$admin_bar->add_menu( array(
     		'id'    => 'customLogout',
-    		'title' => 'Abmelden',
-    		'href'  => wp_logout_url( $redirect ),	
+    		'title' => 'Abmelden',	
     		'meta'  => array(
     			'title' => __('logout'),			
     		),
@@ -73,6 +72,6 @@ function additional_admin_color_schemes() {
                     Eine Webseite von <a href='http://www.hinzkunz.ch' target='_blank' class='supportKontakt'>hinzkunz.ch</a>
                     
                     <a href='http://www.hinzkunz.ch' target='_blank'>
-                        <img src='/wp-content/themes/".get_template()."/admin-colors/hinzkunz/logo-hinzkunz-retina.jpg' /></a>
+                        <img src='".get_stylesheet_directory_uri() . "/admin-colors/hinzkunz/logo-hinzkunz-retina.jpg' /></a>
                     </div>";
         }

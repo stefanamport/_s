@@ -138,7 +138,7 @@ function _s_scripts() {
         	
         	// Fancybox
         	wp_enqueue_script( 'js-fancybox', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array( 'jquery'));
-        	//wp_enqueue_style( 'style-fancybox', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.css' );
+        	wp_enqueue_style( 'style-fancybox', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.css' );
         	
             //wp_enqueue_script( 'js-fancybox-thumbs', get_template_directory_uri() . '/js/fancybox/helpers/jquery.fancybox-thumbs.js', array( 'jquery'));
             //wp_enqueue_style( 'style-fancybox-thumbs', get_template_directory_uri() . '/js/fancybox/helpers/jquery.fancybox-thumbs.css' );
@@ -207,38 +207,33 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-
 // Allgemeine Template Einstellungen
-    require_once('includes/eigene-funktionen/wp-head.php');
-
-    require_once('includes/eigene-funktionen/image-sizes.php');
-    
-    require_once('includes/eigene-funktionen/menu-walkers.php');
-    
-    require_once('includes/eigene-funktionen/no-rss-feed.php');
+    require get_template_directory() .'/inc/eigene-funktionen/image-sizes.php';
+    require get_template_directory() .'/inc/eigene-funktionen/menu-walkers.php';
+    require get_template_directory() .'/inc/eigene-funktionen/no-rss-feed.php';
 
 
 // Standard Funktionen laden
-    require_once('includes/eigene-funktionen/function-make-image.php');
-    require_once('includes/eigene-funktionen/meta-description.php');
-    require_once('includes/eigene-funktionen/sublevel-menu.php');
-    require_once('includes/eigene-funktionen/function-ultimateParent.php');
+    require get_template_directory() .'/inc/eigene-funktionen/function-make-image.php';
+    require get_template_directory() .'/inc/eigene-funktionen/meta-description.php';
+    require get_template_directory() .'/inc/eigene-funktionen/sublevel-menu.php';
+    require get_template_directory() .'/inc/eigene-funktionen/function-ultimateParent.php';
     
 // Post Types
-	require_once('includes/eigene-funktionen/post-types.php');
+	require get_template_directory() .'/inc/eigene-funktionen/post-types.php';
 
 // Wordpress Design Anpassen & Backend Restriktionen
-    require_once('includes/eigene-funktionen/function-make-image.php');
+    require get_template_directory() .'/inc/eigene-funktionen/function-make-image.php';
 
 
 // Backend- & Designanpassungen
-    require_once('includes/eigene-funktionen/backend-restriktionen-allg.php');
-    require_once('includes/eigene-funktionen/backend-restriktionen-noAdmin.php');
+    require get_template_directory() .'/inc/eigene-funktionen/backend-restriktionen-allg.php';
+    require get_template_directory() .'/inc/eigene-funktionen/backend-restriktionen-noAdmin.php';
     
-    require_once('includes/eigene-funktionen/backend-template-hinzkunz.php');
+    require get_template_directory() .'/inc/eigene-funktionen/backend-template-hinzkunz.php';
 
 // Tiny MCE Classes
-	require_once('includes/eigene-funktionen/tinyMce-Styles.php');
+	require get_template_directory() .'/inc/eigene-funktionen/tinyMce-Styles.php';
 
 
 // Helper Functions

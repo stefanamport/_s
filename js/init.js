@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
 
 	/* Fancybox */
 		
-		$(".fancybox, .maincontent a:has(img)").fancybox({
+		$(".fancybox, a:has(img)").fancybox({
 			transition: "fade",
 		  helpers : {
 		      media : {},
